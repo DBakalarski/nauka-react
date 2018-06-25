@@ -36,13 +36,31 @@ var Movie = React.createClass({
 				React.createElement('h2', {}, this.props.movie.title),
 				React.createElement('p', {}, this.props.movie.desc),
 				React.createElement('img', {src: this.props.movie.img})
-			);
+			)
 		)
 	}
 
 });
-var element = React.createElement(Movie, {key: movie.id, title: movie.title, desc: movie.desc, img: movie.img})
 
+var moviesElements = movies.map(function(movie) {
+	return React.createElement(Movie, {key: movie.id, title: movie.title, desc: movie.desc, img: movie.img})
+})
+
+var MovieList = React.createClass({
+    render: function() {
+        return (
+            React.createElement('ul', {}, moviesElements)
+        )
+    }
+});
+
+/*var movieElements = React.createElement('div', {}, 
+    React.createElement('h1', {}, 'Lista filmów'),
+    React.createElement(MovieList, {})
+);
+*/
+
+ReactDOM.render(MovieList, document.getElementById('app'));
 /*
 var element = 
 	React.createElement('div', {},
@@ -58,5 +76,3 @@ var moviesElements = movies.map(function(movie) {
 	);
 });
 */
-
-ReactDOM.render(element, document.getElementById('app'));
