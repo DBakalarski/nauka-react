@@ -27,7 +27,10 @@ var movies = [
 
 var Movie = React.createClass({
 	propTypes: {
-    movie: React.PropTypes.object.isRequired,
+     movie: React.PropTypes.object.isRequired,
+     title: React.PropTypes.string.isRequired,
+     desc: React.PropTypes.string.isRequired,
+     img: React.PropTypes.string.isRequired,
   	},
 
 	render: function() {
@@ -54,13 +57,21 @@ var MovieList = React.createClass({
     }
 });
 
+var element = 
+	React.createElement('div', {},
+		React.createElement('h1', {}, 'Lista filmów'),
+		React.createElement('ul', {}, MovieList)
+	);	
+
+
+ReactDOM.render(element, document.getElementById('app'));
 /*var movieElements = React.createElement('div', {}, 
     React.createElement('h1', {}, 'Lista filmów'),
     React.createElement(MovieList, {})
 );
 */
 
-ReactDOM.render(MovieList, document.getElementById('app'));
+
 /*
 var element = 
 	React.createElement('div', {},
